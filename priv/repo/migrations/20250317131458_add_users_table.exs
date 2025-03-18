@@ -9,5 +9,7 @@ defmodule BananaBank.Repo.Migrations.AddUsersTable do
       add :cep, :string, null: false
       timestamps()
     end
+
+    create unique_index("users", [:email])
   end
 end

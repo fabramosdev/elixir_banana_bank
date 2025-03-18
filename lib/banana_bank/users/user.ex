@@ -21,7 +21,7 @@ defmodule BananaBank.Users.User do
     |> validate_length(:cep, is: 8)
     |> validate_length(:name, min: 3)
     |> validate_format(:email, ~r/@/)
-    |> unique_constraint(:email)
+    |> unique_constraint([:email], message: "Email already exists!")
     |> add_password_hash()
   end
 
